@@ -152,7 +152,6 @@ div.code, #live, .resize {
 }
 
 .resize {
-  cursor: ew-resize;
   background: #ccc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAMCAYAAACnfgdqAAAAMElEQVQIHWP8//8/AxRoMAA5ZkDcAsT/mYCiN4GYBYidGIECUFUMDCAZOEDmUNkAAKKgK80+TE8oAAAAAElFTkSuQmCC) no-repeat left 45%;
 }
 
@@ -374,7 +373,8 @@ div.group {
 
 div.group:hover {
   background: #fff;
-  height: 102px;
+  /* height: 126px;*/
+  height: auto;
   overflow: visible;
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
@@ -386,7 +386,8 @@ div.group:hover {
 }
 
 div.tall:hover {
-  height: 126px; /* single height 24px */
+  height: 150px; /* single height 24px */
+  height: auto;
 }
 
 #control div.group .title {
@@ -925,6 +926,19 @@ ie6, li {
   background-image: url(../images/download.png);
   background-repeat: no-repeat;
   background-position: 8px 7px;
+}
+
+.button.gist {
+  padding-left: 24px;
+  background-image: url(../images/github.png);
+  background-repeat: no-repeat;
+  background-position: 8px -32px;
+}
+
+.button.gist:hover {
+  background-image: url(../images/github.png);
+  background-repeat: no-repeat;
+  background-position: 8px 6px;
 }
 
 /* attempt to get a live render preview in */

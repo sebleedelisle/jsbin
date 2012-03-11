@@ -83,7 +83,24 @@ $document.one('jsbinReady', function () {
     }
   }
   
-  var $sp1 = $('.code.html').splitter().data('splitter');
+  var $sp1 = $('.code.html').splitter(function (type, $left, $right) {
+    if (type == 'y') {
+      var scrollers = {
+        html: $(editors.html.getScrollerElement()),
+        javascript: $(editors.javascript.getScrollerElement())
+      };
+
+      var top = 0, //$el.offset().top,
+          height = $el.height();
+
+      scrollers.javascript.height(height - top);
+      scrollers.html.height($left.height() - $error.filter(':visible').height());
+      editors.javascript.refresh();
+      editors.html.refresh();
+    } else if (type == 'x') {
+
+    }
+  }).data('splitter');
   var $sp2 = $live.splitter().data('splitter');
   
   updatePanel('html', jsbin.settings.show.html);

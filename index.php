@@ -72,7 +72,8 @@ if ($code_id) {
           <a id="save" title="Save new bin" class="button save group" href="<?php echo ROOT?>save">Save</a>
       <?php endif ?>
           <a id="download" title="Save to drive" class="button download group light" href="<?php echo ROOT?>download">Download</a>
-          <a id="startingpoint" title="Set as starting code" class="button group" href="<?php echo ROOT?>save">As template</a>
+          <a id="gist" title="Create new gist" class="button gist group light" href="<?php echo ROOT?>save-gist">Gist</a>
+          <a id="startingpoint" title="Set as starting code" class="button group" href="<?php echo ROOT?>save">Template</a>
       </div>
 
       <span id="panelsvisible" class="gap">View: 

@@ -38,3 +38,12 @@ CREATE TABLE IF NOT EXISTS `ownership` (
   PRIMARY KEY (`name`),
   KEY `name_key` (`name`, `key`)
 );
+
+CREATE TABLE IF NOT EXISTS `forks` (
+  `id` int(11) NOT NULL auto_increment,
+  `parent` char(255) NOT NULL, 
+  `child`  char(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `children` (`parent`),
+  KEY `parents_of` (`child`)
+);

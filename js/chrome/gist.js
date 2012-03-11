@@ -30,3 +30,4 @@ Gist.prototype.setCode = function () {
     editors[type].setCode(gist.code[type]);
   }
 };
+

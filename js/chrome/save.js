@@ -21,6 +21,55 @@ $('a.clone').click(function (event) {
   return false;
 });
 
+$('a.gist').click(function (event) {
+  event.preventDefault();
+  saveCode('save', true, function (data) {
+    console.log('saving gist', data);
+    // return;
+
+    var files = {},
+        url = data.code + '.' + data.revision;
+    files[url + '.html'] = { content: editors.html.getCode() };
+    files[url + '.js'] = { content: editors.javascript.getCode() };
+
+    var argdata = {};
+    // don't send extra files if they're empty
+    if ($.trim(files[url + '.html'].content) !== '') {
+      // delete files[url + '.html'];
+      argdata['file_ext[' + url + '.html]'] = 'html';
+      argdata['file_content[' + url + '.html]'] = files[url + '.html'].content;
+    }
+
+    if ($.trim(files[url + '.js'].content) !== '') {
+      // delete files[url + '.js'];
+      argdata['file_ext[' + url + '.js]'] = 'javascript';
+      argdata['file_name[' + url + '.js]'] = url;
+      argdata['file_content[' + url + '.js]'] = files[url + '.js'].content;
+    }
+
+    argdata.public = true;
+
+    console.log(files);
+
+    $.ajax({
+      url: 'https://api.github.com/gists',
+      type: 'post',
+      xhrFields: {
+        withCredentials: true
+      },
+      data: JSON.stringify({ public: true, files: files }),
+      success: function (data) {
+        console.log('worked', data);
+      },
+      error: function () {
+        console.log('fail', [].slice.apply(arguments));
+      }
+    });
+  });
+  
+  return false;
+});
+
 
 function saveCode(method, ajax, ajaxCallback) {
   // create form and post to it
@@ -39,7 +88,7 @@ function saveCode(method, ajax, ajaxCallback) {
       type: 'post',
       success: function (data) {
         $('form').attr('action', data.url + '/save');
-        ajaxCallback && ajaxCallback();
+        ajaxCallback && ajaxCallback(data);
 
         if (window.history && window.history.pushState) {
           window.history.pushState(null, data.edit, data.edit);
