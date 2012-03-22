@@ -60,9 +60,7 @@ function renderLivePreview() {
   // strip autofocus from the markup - prevents the focus switching out of the editable area
   source = source.replace(/(<.*?\s)(autofocus)/g, '$1');
 
-  // this setTimeout allows the iframe to be rendered before our code
-  // runs - thus allowing us access to the innerWidth, et al
-  setTimeout(function () {
+  var run = function () {
     document.open();
 
     if (debug) {
@@ -78,8 +76,17 @@ function renderLivePreview() {
       document.write(source);
     }
     document.close();
+  }
 
-  }, 10);
+  // WebKit requires a wait time before actually writing to the iframe
+  // annoyingly it's not consistent (I suspect WebKit is the buggy one)
+  if (iframedelay.active) {
+    // this setTimeout allows the iframe to be rendered before our code
+    // runs - thus allowing us access to the innerWidth, et al
+    setTimeout(run, 10);
+  } else {
+    run();
+  }
 }
 
 $live.find('.close').click(function () {
