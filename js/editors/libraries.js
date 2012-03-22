@@ -16,6 +16,12 @@ var Libraries = function () {
 
 Libraries.prototype.init = function () {
   var libs = {
+	creativejs: { 
+		text:'CreativeJS', 
+		scripts: [
+		{ text: 'Non-coders framework', url:'/js/CreativeJS.js'}
+		]
+	},
     yui: {
       text: 'YUI',
       scripts: [
@@ -99,7 +105,7 @@ Libraries.prototype.init = function () {
     // }
   },
   // NOTE if a new library category is added, you need to add it here
-  order = 'jquery jqueryui jquerymobile prototype yui mootools dojo others'.split(' '),
+  order = ['creativejs'];//'creativejs jquery jqueryui jquerymobile prototype yui mootools dojo others'.split(' '),
   i = 0;
     
   this.length = 0; // triggers support for length prop
