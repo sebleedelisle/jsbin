@@ -77,7 +77,7 @@ function radians(deg) {return deg*Math.PI/180;};
 function degrees(rad) {return rad*180/Math.PI;};
 
 
-var mouseX, mouseY, canvas, context, c, width=10, height, framerate, lastUpdate;
+var mouseX, mouseY, width=10, height, framerate, lastUpdate;
 frameRate = 60; 
 lastUpdate = Date.now(); 
 
@@ -95,28 +95,17 @@ function cjsloop() {
 
 }
 
-canvas = document.createElement('canvas'); 
-context = c = canvas.getContext('2d');  
+// canvas = document.createElement('canvas'); 
+// context = c = canvas.getContext('2d');  
 
 
-canvas.addEventListener('mousemove', onMouseMove);
-function onMouseMove(e) { 
-	mouseX = e.clientX; 
-	mouseY = e.clientY; 
-} 
+// canvas.addEventListener('mousemove', onMouseMove);
+// function onMouseMove(e) { 
+// 	mouseX = e.clientX; 
+// 	mouseY = e.clientY; 
+// } 
 
 onLoad();
-function delayLoad() { 
-	setTimeout(onLoad, 1); 	
-} 
 function onLoad() { 
-	document.body.appendChild(canvas); 
-	
-	document.body.style.margin = '0px'; 
-//	document.body.style.overflow = 'hidden';
-
-window.width = canvas.width = window.innerWidth; 
-window.height = canvas.height = window.innerHeight;
-console.log('loaded', width); 
 	cjsloop() ;
 }

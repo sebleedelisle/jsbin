@@ -434,20 +434,13 @@ function defaultCode($not_found = false) {
     $html = <<<HERE_DOC
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset=utf-8 />
-<title>JS Bin</title>
-<!--[if IE]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<style>
-  article, aside, figure, footer, header, hgroup, 
-  menu, nav, section { display: block; }
-</style>
-</head>
-<body>
-  <p id="hello">Hello World</p>
-</body>
+	<head>
+	<title>CreativeJS graphics playground</title>
+	</head>
+	<body>
+		<script class="jsbin" src="/js/creativejs.js"></script>
+		<canvas id="cjsCanvas" width='200' height='200'></canvas>
+	</body>
 </html>
 HERE_DOC;
   } 
@@ -462,9 +455,9 @@ HERE_DOC;
     $javascript = '';
   } else {
     if ($not_found) {
-      $javascript = 'document.getElementById("hello").innerHTML = "<strong>This URL does not have any code saved to it.</strong>";';
+      $javascript = '';
     } else {
-      $javascript = "if (document.getElementById('hello')) {\n  document.getElementById('hello').innerHTML = 'Hello World - this was inserted using JavaScript';\n}\n";
+      $javascript = "";
     }    
   }
 
