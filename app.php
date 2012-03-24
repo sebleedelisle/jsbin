@@ -436,6 +436,9 @@ function defaultCode($not_found = false) {
 <html>
 	<head>
 	<title>CreativeJS graphics playground</title>
+	<style>
+		canvas { border : 1px lightgray solid; }
+	</style>
 	</head>
 	<body>
 		<script class="jsbin" src="/js/creativejs.js"></script>
@@ -452,12 +455,12 @@ HERE_DOC;
   } else if (@$_REQUEST['javascript']) {
     $javascript = $_REQUEST['javascript']; // it's beyond me why I ever used js?
   } else if ($usingRequest) {
-    $javascript = '';
+    $javascript = "";
   } else {
     if ($not_found) {
-      $javascript = '';
+      $javascript = 'document.getElementById("hello").innerHTML = "<strong>This URL does not have any code saved to it.</strong>";';
     } else {
-      $javascript = "";
+      $javascript = "var canvas = document.getElementById('cjsCanvas');\nvar c = canvas.getContext('2d');";
     }    
   }
 

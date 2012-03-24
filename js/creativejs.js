@@ -77,7 +77,7 @@ function radians(deg) {return deg*Math.PI/180;};
 function degrees(rad) {return rad*180/Math.PI;};
 
 
-var mouseX, mouseY, width=10, height, framerate, lastUpdate;
+var mouseX, mouseY, lastMouseX, lastMouseY, framerate, lastUpdate;
 frameRate = 60; 
 lastUpdate = Date.now(); 
 
@@ -90,20 +90,18 @@ function cjsloop() {
 	if((typeof draw == 'function') && (elapsedMils>(1000/frameRate))) {
 		draw(); 
 		lastUpdate = now; 
+		lastMouseX = mouseX; 
+		lastMouseY = mouseY; 
 	}
 		
 
 }
 
-// canvas = document.createElement('canvas'); 
-// context = c = canvas.getContext('2d');  
-
-
-// canvas.addEventListener('mousemove', onMouseMove);
-// function onMouseMove(e) { 
-// 	mouseX = e.clientX; 
-// 	mouseY = e.clientY; 
-// } 
+document.body.addEventListener('mousemove', onMouseMove);
+function onMouseMove(e) { 
+ 	mouseX = e.clientX; 
+ 	mouseY = e.clientY; 
+} 
 
 onLoad();
 function onLoad() { 
