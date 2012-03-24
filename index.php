@@ -72,7 +72,7 @@ if ($code_id) {
           <a id="save" title="Save new bin" class="button save group" href="<?php echo ROOT?>save">Save</a>
       <?php endif ?>
           <a id="download" title="Save to drive" class="button download group light" href="<?php echo ROOT?>download">Download</a>
-          <a id="startingpoint" title="Set as starting code" class="button group" href="<?php echo ROOT?>save">As template</a>
+          <!--<a id="startingpoint" title="Set as starting code" class="button group" href="<?php echo ROOT?>save">As template</a>-->
       </div>
 
       <span id="panelsvisible" class="gap">View: 
@@ -84,7 +84,7 @@ if ($code_id) {
   </div>
   <div class="help">
     <ul class="flat">
-      <li><a target="_blank" href="http://jsbin.tumblr.com">Help &amp; tutorials</a></li>
+      <!--<li><a target="_blank" href="http://jsbin.tumblr.com">Help &amp; tutorials</a></li>-->
       <li class="prefsButton"><a href="#"><img src="/images/gear.png"></a></li>
     </ul>
   </div>
@@ -100,6 +100,7 @@ if ($code_id) {
     <div class="code stretch html">
       <div class="label">
         <p>HTML</p>
+		<!--
         <label for="library">Include</label>
         <select id="library">
           <option value="none">None</option>
@@ -111,15 +112,15 @@ if ($code_id) {
           <option value="mootools">Mootools</option>
           <option value="dojo">Dojo</option>
           <option value="ext">Ext js</option>
-        </select>
+        </select>-->
       </div>
       <div class="editbox">
         <textarea spellcheck="false" autocapitalize="off" autocorrect="off" id="html"></textarea>
       </div>
     </div>
-      <div id="live" class="stretch livepreview"><a href="<?php echo ROOT ?>live" target="_new" id="popout" class="popout button light left right">Pop out</a></div>
 
   </div>
+      <div id="live" class="stretch livepreview"><a href="<?php echo ROOT ?>live" target="_new" id="popout" class="popout button light left right">Pop out</a></div>
   <div id="preview" class="binview stretch"></div>
   <form method="post" action="<?php echo $code_id_path?>save">
     <input type="hidden" name="method" />
