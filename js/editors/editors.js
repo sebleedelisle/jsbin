@@ -9,6 +9,11 @@ window.editors = editors;
 
 editors.html = CodeMirror.fromTextArea(document.getElementById('html'), {
   parserfile: [],
+  indentWithTabs : true, 
+  indentUnit : 3, 
+  smartIndent : false, 
+  electricChars : false,
+  tabSize : 3, 
   tabMode: 'shift',
   mode: 'text/html',
   onChange: changecontrol,
@@ -19,6 +24,11 @@ editors.html = CodeMirror.fromTextArea(document.getElementById('html'), {
 editors.javascript = CodeMirror.fromTextArea(document.getElementById('javascript'), {
   mode: 'javascript',
   tabMode: 'shift',
+  indentWithTabs : true, 
+  indentUnit : 3, 
+  smartIndent : false, 
+  electricChars : false,
+  tabSize : 3,
   onChange: changecontrol,
   lineWrapping: true,
   theme: jsbin.settings.theme || 'jsbin'

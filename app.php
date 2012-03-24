@@ -438,11 +438,22 @@ function defaultCode($not_found = false) {
 	<title>CreativeJS graphics playground</title>
 	<style>
 		canvas { border : 1px lightgray solid; }
+		body { margin :0; }
 	</style>
 	</head>
 	<body>
-		<script class="jsbin" src="/js/creativejs.js"></script>
-		<canvas id="cjsCanvas" width='200' height='200'></canvas>
+		<script src="/js/creativejs.js"></script>
+		<canvas id="creativejs" width='200' height='200'></canvas>
+		<script> 
+
+var canvas = document.getElementById('creativejs');
+var c = canvas.getContext('2d');
+CJS.initCanvas(canvas);
+
+		
+		
+		
+		</script>
 	</body>
 </html>
 HERE_DOC;
@@ -460,7 +471,7 @@ HERE_DOC;
     if ($not_found) {
       $javascript = 'document.getElementById("hello").innerHTML = "<strong>This URL does not have any code saved to it.</strong>";';
     } else {
-      $javascript = "var canvas = document.getElementById('cjsCanvas');\nvar c = canvas.getContext('2d');";
+      $javascript = "";
     }    
   }
 
