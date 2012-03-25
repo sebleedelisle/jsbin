@@ -444,14 +444,6 @@ function defaultCode($not_found = false) {
 	<body>
 		<script src="/js/creativejs.js"></script>
 		<canvas id="creativejs" width='200' height='200'></canvas>
-		<script> 
-
-var canvas = document.getElementById('creativejs');
-var c = canvas.getContext('2d');
-
-
-		
-		</script>
 	</body>
 </html>
 HERE_DOC;
@@ -469,7 +461,8 @@ HERE_DOC;
     if ($not_found) {
       $javascript = 'document.getElementById("hello").innerHTML = "<strong>This URL does not have any code saved to it.</strong>";';
     } else {
-      $javascript = "";
+      $javascript = "	var canvas = document.getElementById('creativejs'), \n
+			c = canvas.getContext('2d');";
     }    
   }
 
