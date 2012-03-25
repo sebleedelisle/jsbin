@@ -58,13 +58,19 @@ function random(min, max) {
 	return (Math.random() * (max-min)) + min;
 };
 
-function map(value, min1, max1, min2, max2, clamp) { 
+function map(value, min1, max1, min2, max2, clampResult) { 
 	var returnvalue = ((value-min1) / (max1 - min1) * (max2-min2)) + min2; 
-	if(clamp) return Math.max(min2, Math.min(returnvalue, max2)); 
+	if(clampResult) return clamp(returnvalue, min2, max2); 
 	else return returnvalue; 
 };
 
 function clamp(value, min, max) { 
+	if(max<min) { 
+		var temp = min; 
+		min = max; 
+		max = temp; 
+		
+	}
 	return Math.max(min, Math.min(value, max)); 
 };
 
