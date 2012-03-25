@@ -448,10 +448,8 @@ function defaultCode($not_found = false) {
 
 var canvas = document.getElementById('creativejs');
 var c = canvas.getContext('2d');
-CJS.initCanvas(canvas);
 
-		
-		
+
 		
 		</script>
 	</body>
