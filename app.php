@@ -461,8 +461,7 @@ HERE_DOC;
     if ($not_found) {
       $javascript = 'document.getElementById("hello").innerHTML = "<strong>This URL does not have any code saved to it.</strong>";';
     } else {
-      $javascript = "	var canvas = document.getElementById('creativejs'), \n
-			c = canvas.getContext('2d');";
+      $javascript = "var canvas = document.getElementById('creativejs'), \n	c = canvas.getContext('2d');";
     }    
   }
 
