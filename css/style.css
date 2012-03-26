@@ -1130,8 +1130,8 @@ details li, .details li {
   top: 0;
   bottom: 0;
   line-height: 1.2em;
-  font-family: MenschRegular, Menlo, Monaco, consolas, monospace;
-  font-size: 12px;
+  font-family: Monaco, MenschRegular, Menlo, consolas, monospace;
+  font-size: 16px;
 }
 
 
